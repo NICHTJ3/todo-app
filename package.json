@@ -1,0 +1,13 @@
+{
+  "name": "todo-app",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "repository": "https://github.com/NICHTJ3/todo-app.git",
+  "author": "NICHTJ3 <nicholsontrent@gmail.com>",
+  "license": "MIT"
+}
