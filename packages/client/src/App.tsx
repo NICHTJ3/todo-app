@@ -10,7 +10,7 @@ import {
   deleteTodo,
   TodoType,
   ApiResponseType,
-} from "./api";
+} from "./services/todos";
 
 const App: React.FC = () => {
   const [todos, setTodos] = useState<TodoType[]>([]);

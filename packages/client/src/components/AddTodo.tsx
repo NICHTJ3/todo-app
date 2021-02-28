@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { TodoType } from "../api";
+import { TodoType } from "../services/todos";
 
 export type FormData = Omit<TodoType, "_id" | "status">;
 
