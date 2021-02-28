@@ -1,36 +1,34 @@
-import express, { Express } from "express"
-import mongoose from "mongoose"
-import cors from "cors"
-import todoRoutes from "./routes/Todo"
-import * as Dotenv from 'dotenv'
+import express, { Express } from 'express';
+import mongoose from 'mongoose';
+import cors from 'cors';
+import * as Dotenv from 'dotenv';
+import todoRoutes from './routes/Todo';
 
-Dotenv.config()
+Dotenv.config();
 
-const app: Express = express()
+const app: Express = express();
 
-const PORT: string | number = process.env.PORT || 5000
+const PORT: string | number = process.env.PORT || 5000;
 
-app.use(cors())
+app.use(cors());
 
-app.use(express.json())
+app.use(express.json());
 
-app.use(todoRoutes)
+app.use(todoRoutes);
 
-
-mongoose.set("useFindAndModify", false)
+mongoose.set('useFindAndModify', false);
 
 mongoose.Promise = global.Promise;
 
 mongoose
-  .connect(`mongodb://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@db:27017/${process.env.MONGO_DB}?authSource=admin`, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  }).then(() =>
-    app.listen(PORT, () =>
-      console.log(`Server running on http://localhost:${PORT}`)
-    )
+  .connect(
+    `mongodb://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@db:27017/${process.env.MONGO_DB}?authSource=admin`,
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    },
   )
-  .catch(error => {
-    throw error
-  })
-
+  .then(() => app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`)))
+  .catch((error) => {
+    throw error;
+  });
