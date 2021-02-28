@@ -12,7 +12,10 @@ const PORT: string | number = process.env.PORT || 5000
 
 app.use(cors())
 
+app.use(express.json())
+
 app.use(todoRoutes)
+
 
 mongoose.set("useFindAndModify", false)
 
