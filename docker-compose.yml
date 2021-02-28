@@ -57,12 +57,14 @@ services:
     image: 'node:13'
     command: yarn workspace client start
     ports:
-      - '127.0.0.1:5000:5000'
+      - '127.0.0.1:5000:3000'
     volumes:
       - '.:/srv/frontend:rw'
     working_dir: /srv/frontend
     depends_on:
       - backend
+    environment:
+      - DISABLE_NEW_JSX_TRANSFORM=true
     labels:
       - traefik.http.routers.frontend.rule=Host(`todoy.localhost`)
       - traefik.docker.network=reverse-proxy
