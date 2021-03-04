@@ -1,5 +1,6 @@
 import axios, { AxiosResponse } from "axios";
-import { FormData } from "./components/AddTodo";
+// NOTE: This should actually originate here
+import { FormData } from "../components/AddTodo";
 
 const baseUrl: string = "http://localhost:3000";
 
