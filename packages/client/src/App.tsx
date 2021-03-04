@@ -1,15 +1,15 @@
 /* eslint-disable */
-import React, { useEffect, useState } from "react";
 import { AxiosResponse } from "axios";
-import TodoItem from "./components/TodoItem";
+import React, { useEffect, useState } from "react";
 import AddTodo, { FormData } from "./components/AddTodo";
+import TodoItem from "./components/TodoItem";
 import {
-  getTodos,
   addTodo,
-  updateTodo,
-  deleteTodo,
-  TodoType,
   ApiResponseType,
+  deleteTodo,
+  getTodos,
+  TodoType,
+  updateTodo,
 } from "./services/todos";
 
 const App: React.FC = () => {
@@ -63,7 +63,7 @@ const App: React.FC = () => {
 
   return (
     <main className="App">
-      <h1>My Todos</h1>
+      <h1 className="text-lg text-red-500">My Todos</h1>
       <AddTodo saveTodo={handleSaveTodo} />
       {todos.map((todo: TodoType) => (
         <TodoItem
