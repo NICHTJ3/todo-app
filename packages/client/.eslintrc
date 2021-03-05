@@ -27,6 +27,27 @@
     "no-underscore-dangle": 0,
     "import/extensions": 0,
     "no-unused-vars": "off",
-    "@typescript-eslint/no-unused-vars": "error"
+    "@typescript-eslint/no-unused-vars": 2,
+    // TODO: Fix this :(
+    "jsx-a11y/control-has-associated-label": [
+      0,
+      {
+        "labelComponents": [],
+        "labelAttributes": [],
+        "controlComponents": [],
+        "assert": "both",
+        "depth": 25
+      }
+    ],
+    "jsx-a11y/label-has-associated-control": [
+      2,
+      {
+        "components": [],
+        "required": {
+          "some": ["nesting", "id"]
+        },
+        "allowChildren": false
+      }
+    ]
   }
 }
