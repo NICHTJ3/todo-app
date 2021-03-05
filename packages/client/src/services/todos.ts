@@ -55,7 +55,7 @@ export const updateTodo = async (
 ): Promise<AxiosResponse<ApiResponseType>> => {
   try {
     const todoUpdate: Pick<TodoType, "status"> = {
-      status: true,
+      status: !todo.status,
     };
     const updatedTodo: AxiosResponse<ApiResponseType> = await axios.put(
       `${baseUrl}/todos/${todo._id}`,
