@@ -15,10 +15,6 @@ import {
 const App: React.FC = () => {
   const [todos, setTodos] = useState<TodoType[]>([]);
 
-  useEffect(() => {
-    fetchTodos();
-  }, []);
-
   const fetchTodos = (): void => {
     getTodos()
       .then(({ data: { todos: newTodos } }: AxiosResponse<ApiResponseType>) =>
@@ -26,6 +22,10 @@ const App: React.FC = () => {
       )
       .catch((err: Error) => console.log(err));
   };
+
+  useEffect(() => {
+    fetchTodos();
+  }, []);
 
   const handleSaveTodo = (e: React.FormEvent, formData: FormData): void => {
     e.preventDefault();
@@ -62,8 +62,8 @@ const App: React.FC = () => {
   };
 
   return (
-    <main className="App">
-      <h1 className="text-lg text-red-500">My Todos</h1>
+    <main>
+      <h1 className="text-xl">My Todos</h1>
       <AddTodo saveTodo={handleSaveTodo} />
       {todos.map((todo: TodoType) => (
         <TodoItem
