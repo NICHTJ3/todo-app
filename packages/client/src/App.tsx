@@ -63,8 +63,8 @@ const App: React.FC = () => {
   };
 
   return (
-    <Container>
-      <h1 className="text-xl">My Todos</h1>
+    <Container className="space-y-2">
+      <h1 className="text-5xl font-bold">My Todos</h1>
       <AddTodo saveTodo={handleSaveTodo} />
       {todos.map((todo: TodoType) => (
         <TodoItem
