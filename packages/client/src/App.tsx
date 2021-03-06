@@ -68,7 +68,7 @@ const App: React.FC = () => {
       {todos.map((todo: TodoType) => (
         <TodoItem
           key={todo._id}
-          updateTodo={handleUpdateTodo}
+          toggleComplete={handleUpdateTodo}
           deleteTodo={handleDeleteTodo}
           todo={todo}
         />
