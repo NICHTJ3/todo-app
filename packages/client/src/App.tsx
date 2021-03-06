@@ -3,6 +3,7 @@ import { AxiosResponse } from "axios";
 import React, { useEffect, useState } from "react";
 import AddTodo, { FormData } from "./components/AddTodo";
 import TodoItem from "./components/TodoItem";
+import Container from "./components/ui/Container";
 import {
   addTodo,
   ApiResponseType,
@@ -62,7 +63,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <main>
+    <Container>
       <h1 className="text-xl">My Todos</h1>
       <AddTodo saveTodo={handleSaveTodo} />
       {todos.map((todo: TodoType) => (
@@ -73,7 +74,7 @@ const App: React.FC = () => {
           todo={todo}
         />
       ))}
-    </main>
+    </Container>
   );
 };
 
