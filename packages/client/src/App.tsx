@@ -63,18 +63,22 @@ const App: React.FC = () => {
   };
 
   return (
-    <Container className="space-y-2">
-      <h1 className="text-5xl font-bold">My Todos</h1>
-      <AddTodo saveTodo={handleSaveTodo} />
-      {todos.map((todo: TodoType) => (
-        <TodoItem
-          key={todo._id}
-          toggleComplete={handleUpdateTodo}
-          deleteTodo={handleDeleteTodo}
-          todo={todo}
-        />
-      ))}
-    </Container>
+    <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+      <Container className="space-y-2">
+        <h1 className="text-5xl font-bold">My Todos</h1>
+        <AddTodo saveTodo={handleSaveTodo} />
+        <div className="overflow-scroll max-h-96 border border-gray-100 rounded-md shadow-lg p-2 space-y-1">
+          {todos.map((todo: TodoType) => (
+            <TodoItem
+              key={todo._id}
+              toggleComplete={handleUpdateTodo}
+              deleteTodo={handleDeleteTodo}
+              todo={todo}
+            />
+          ))}
+        </div>
+      </Container>
+    </div>
   );
 };
 

@@ -11,7 +11,7 @@ const Todo = ({ todo, toggleComplete, deleteTodo }: Props) => {
   const checkTodo: string = todo.status ? `line-through` : "";
   return (
     // TODO: Container?
-    <div className="flex rounded-md border-gray-100 border w-100">
+    <div className="flex rounded-md border-gray-100 border w-100 p-2 shadow-sm">
       <div className="flex-1">
         <h1 className={checkTodo}>{todo.name}</h1>
         <span className={checkTodo}>{todo.description}</span>
