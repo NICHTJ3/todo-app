@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { TodoType } from "../services/todos";
 
 export type FormData = Omit<TodoType, "_id" | "status">;
@@ -10,6 +10,12 @@ type Props = {
 const AddTodo = ({ saveTodo }: Props) => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
+  const ref = useRef<HTMLInputElement | null>(null);
+
+  // TODO: Does this cause a render loop?
+  useEffect(() => {
+    ref.current?.focus();
+  }, [ref]);
 
   // NOTE: This should look okay once we're in a container
   return (
@@ -19,12 +25,15 @@ const AddTodo = ({ saveTodo }: Props) => {
         saveTodo(e, { name, description });
         setName("");
         setDescription("");
+        ref.current?.focus();
       }}
     >
       <label htmlFor="name" className="sr-only">
         Name
       </label>
       <input
+        // NOTE: This seams wrong. I feel I shouldn't need a ref and state
+        ref={ref}
         value={name}
         onChange={(e) => setName(e.target.value)}
         placeholder="Name"
